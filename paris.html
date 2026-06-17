@@ -1,0 +1,103 @@
+```html
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{$json.Place}}</title>
+    <style>
+        /* Basic styling */
+        body {
+            direction: rtl;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* Header styling */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        /* Main content styling */
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Image styling */
+        img {
+            width: 100%;
+            height: auto;
+            margin: 10px 0;
+        }
+        
+        /* Attraction styling */
+        .atraction {
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        
+        /* Google Maps styling */
+        #gmap {
+            width: 100%;
+            height: 400px;
+            margin: 10px 0;
+        }
+        
+        /* Responsive styling */
+        @media only screen and (max-width: 600px) {
+            #gmap {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>{{$json.Place}}</h1>
+        <h2>{{$json.Description}}</h2>
+    </header>
+    <main class="main-content">
+        <section>
+            <div>
+                <img src="https://unsplash.com/photos/{{$json.Image1}}/download" alt="Image 1">
+                <img src="https://unsplash.com/photos/{{$json.Image2}}/download" alt="Image 2">
+                <img src="https://unsplash.com/photos/{{$json.Image3}}/download" alt="Image 3">
+            </div>
+        </section>
+        
+        <section>
+            <h2>Recommended Attractions</h2>
+            <div class="atraction">
+                <h2>{{$json.Attraction1}}</h2>
+                <p>{{$json.AttractionsDescription1}}</p>
+            </div>
+            <div class="atraction">
+                <h2>{{$json.Attraction2}}</h2>
+                <p>{{$json.AttractionsDescription2}}</p>
+            </div>
+            <div class="atraction">
+                <h2>{{$json.Attraction3}}</h2>
+                <p>{{$json.AttractionsDescription3}}</p>
+            </div>
+        </section>
+        
+        <section id="gmap">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3150.2341131241233!2d30.71744431519522!3d31.22551147914168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1519d4bde1d9c7f%3A0xa6edc1f0a3e9f0f8!2{{$json.Place}}!5e0!3m2!1she!2she!4v1679731551166!5m2!1she!2she" 
+                width="600" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer"
+                >
+            </iframe>
+        </section>
+    </main>
+</body>
+</html>
+```
